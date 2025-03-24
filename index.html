@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ePub Viewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
+</head>
+<body>
+    <div id="viewer" style="width:100%; height:100vh;"></div>
+    <script>
+        const bookUrl = new URL(window.location).searchParams.get("url");
+        const book = ePub(bookUrl);
+        const rendition = book.renderTo("viewer", {width: "100%", height: "100%"});
+        rendition.display();
+    </script>
+</body>
+</html>
